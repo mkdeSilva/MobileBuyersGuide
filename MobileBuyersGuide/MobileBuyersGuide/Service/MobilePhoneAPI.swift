@@ -60,11 +60,15 @@ class MobilePhoneAPI {
         dataTask.resume()
     }
     
+   
+}
+
+extension MobilePhoneAPI : MobilePhoneAPIProtocol {
     public func getAllMobilePhoneData(result: @escaping (Result<[MobilePhone], APIError>) -> Void) {
         guard var url = baseURL else { return }
         
         url.appendPathComponent(mobileString)
-
+        
         request(from: url, completion: result)
     }
     
@@ -78,7 +82,6 @@ class MobilePhoneAPI {
         request(from: url, completion: result)
     }
 }
-
 
 
 
