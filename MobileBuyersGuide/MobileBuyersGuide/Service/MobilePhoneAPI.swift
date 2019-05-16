@@ -15,7 +15,7 @@ enum APIError : Error {
     case apiError
 }
 
-class MobilePhoneServiceAPI {
+class MobilePhoneAPI {
     
     let session : URLSession
     
