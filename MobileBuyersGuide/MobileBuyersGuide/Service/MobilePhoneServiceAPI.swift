@@ -31,7 +31,6 @@ class MobilePhoneServiceAPI {
         if ( baseURL == nil){
             print("WARNING: Invalid Base URL")
         }
-        
     }
     
     private func request<T : Decodable>(from url : URL, completion : @escaping (Result<T, APIError>) -> Void) {
@@ -39,11 +38,10 @@ class MobilePhoneServiceAPI {
         let dataTask = session.dataTask(with: url) { (result) in
             switch(result)
             {
-            case .failure(let error):
-                print("Error Occurred: \(error.localizedDescription)")
+            case .failure(_):
                 completion(.failure(.apiError))
             case .success(let (response, data)):
-                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<204 ~= statusCode else {
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 else {
                     completion(.failure(.invalidResponse))
                     return
                 }
