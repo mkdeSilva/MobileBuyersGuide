@@ -12,7 +12,24 @@
 		183D37E7228C3AE800E3CC74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E5228C3AE800E3CC74 /* Main.storyboard */; };
 		183D37E9228C3AE900E3CC74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E8228C3AE900E3CC74 /* Assets.xcassets */; };
 		183D37EC228C3AE900E3CC74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D37EA228C3AE900E3CC74 /* LaunchScreen.storyboard */; };
+		183D37F8228C3CD700E3CC74 /* MobilePhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37F7228C3CD700E3CC74 /* MobilePhone.swift */; };
+		183D37FD228C3E7900E3CC74 /* MobilePhoneDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37FC228C3E7900E3CC74 /* MobilePhoneDetail.swift */; };
+		183D3805228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */; };
+		183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */; };
+		183D3813228DA66C00E3CC74 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3812228DA66C00E3CC74 /* URLExtension.swift */; };
+		183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */; };
+		183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		183D3807228C3EFA00E3CC74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183D37D6228C3AE700E3CC74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 183D37DD228C3AE700E3CC74;
+			remoteInfo = MobileBuyersGuide;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		183D37DE228C3AE700E3CC74 /* MobileBuyersGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBuyersGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +39,26 @@
 		183D37E8228C3AE900E3CC74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183D37EB228C3AE900E3CC74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		183D37ED228C3AE900E3CC74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183D37F7228C3CD700E3CC74 /* MobilePhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhone.swift; sourceTree = "<group>"; };
+		183D37FC228C3E7900E3CC74 /* MobilePhoneDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneDetail.swift; sourceTree = "<group>"; };
+		183D3802228C3EFA00E3CC74 /* MobileBuyersGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileBuyersGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileBuyersGuideTests.swift; sourceTree = "<group>"; };
+		183D3806228C3EFA00E3CC74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPI.swift; sourceTree = "<group>"; };
+		183D3812228DA66C00E3CC74 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPIProtocol.swift; sourceTree = "<group>"; };
+		183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMobilePhoneAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		183D37DB228C3AE700E3CC74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		183D37FF228C3EFA00E3CC74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				183D37E0228C3AE700E3CC74 /* MobileBuyersGuide */,
+				183D3803228C3EFA00E3CC74 /* MobileBuyersGuideTests */,
 				183D37DF228C3AE700E3CC74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				183D37DE228C3AE700E3CC74 /* MobileBuyersGuide.app */,
+				183D3802228C3EFA00E3CC74 /* MobileBuyersGuideTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,14 +89,101 @@
 		183D37E0228C3AE700E3CC74 /* MobileBuyersGuide */ = {
 			isa = PBXGroup;
 			children = (
-				183D37E1228C3AE800E3CC74 /* AppDelegate.swift */,
-				183D37E3228C3AE800E3CC74 /* ViewController.swift */,
-				183D37E5228C3AE800E3CC74 /* Main.storyboard */,
-				183D37E8228C3AE900E3CC74 /* Assets.xcassets */,
-				183D37EA228C3AE900E3CC74 /* LaunchScreen.storyboard */,
+				183D380F228DA64600E3CC74 /* Helper */,
+				183D380C228CDDF000E3CC74 /* Service */,
+				183D37FB228C3DB800E3CC74 /* Views */,
 				183D37ED228C3AE900E3CC74 /* Info.plist */,
+				183D37F6228C3C8900E3CC74 /* ViewModels */,
+				183D37F5228C3C7E00E3CC74 /* ViewControllers */,
+				183D37F4228C3C7600E3CC74 /* Models */,
+				183D37F3228C3C4F00E3CC74 /* Supporting Files */,
+				183D37E1228C3AE800E3CC74 /* AppDelegate.swift */,
+				183D37E5228C3AE800E3CC74 /* Main.storyboard */,
 			);
 			path = MobileBuyersGuide;
+			sourceTree = "<group>";
+		};
+		183D37F3228C3C4F00E3CC74 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				183D37EA228C3AE900E3CC74 /* LaunchScreen.storyboard */,
+				183D37E8228C3AE900E3CC74 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		183D37F4228C3C7600E3CC74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				183D37F7228C3CD700E3CC74 /* MobilePhone.swift */,
+				183D37FC228C3E7900E3CC74 /* MobilePhoneDetail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		183D37F5228C3C7E00E3CC74 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				183D37E3228C3AE800E3CC74 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		183D37F6228C3C8900E3CC74 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		183D37FB228C3DB800E3CC74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		183D3803228C3EFA00E3CC74 /* MobileBuyersGuideTests */ = {
+			isa = PBXGroup;
+			children = (
+				183D3816228DBB3500E3CC74 /* Mocks */,
+				183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */,
+				183D3806228C3EFA00E3CC74 /* Info.plist */,
+			);
+			path = MobileBuyersGuideTests;
+			sourceTree = "<group>";
+		};
+		183D380C228CDDF000E3CC74 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */,
+				183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		183D380F228DA64600E3CC74 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				183D3810228DA64F00E3CC74 /* Extensions */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		183D3810228DA64F00E3CC74 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				183D3812228DA66C00E3CC74 /* URLExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		183D3816228DBB3500E3CC74 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +206,24 @@
 			productReference = 183D37DE228C3AE700E3CC74 /* MobileBuyersGuide.app */;
 			productType = "com.apple.product-type.application";
 		};
+		183D3801228C3EFA00E3CC74 /* MobileBuyersGuideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 183D3809228C3EFA00E3CC74 /* Build configuration list for PBXNativeTarget "MobileBuyersGuideTests" */;
+			buildPhases = (
+				183D37FE228C3EFA00E3CC74 /* Sources */,
+				183D37FF228C3EFA00E3CC74 /* Frameworks */,
+				183D3800228C3EFA00E3CC74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				183D3808228C3EFA00E3CC74 /* PBXTargetDependency */,
+			);
+			name = MobileBuyersGuideTests;
+			productName = MobileBuyersGuideTests;
+			productReference = 183D3802228C3EFA00E3CC74 /* MobileBuyersGuideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +236,10 @@
 				TargetAttributes = {
 					183D37DD228C3AE700E3CC74 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					183D3801228C3EFA00E3CC74 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 183D37DD228C3AE700E3CC74;
 					};
 				};
 			};
@@ -113,6 +257,7 @@
 			projectRoot = "";
 			targets = (
 				183D37DD228C3AE700E3CC74 /* MobileBuyersGuide */,
+				183D3801228C3EFA00E3CC74 /* MobileBuyersGuideTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +273,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		183D3800228C3EFA00E3CC74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -135,12 +287,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */,
 				183D37E4228C3AE800E3CC74 /* ViewController.swift in Sources */,
+				183D37F8228C3CD700E3CC74 /* MobilePhone.swift in Sources */,
 				183D37E2228C3AE800E3CC74 /* AppDelegate.swift in Sources */,
+				183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */,
+				183D37FD228C3E7900E3CC74 /* MobilePhoneDetail.swift in Sources */,
+				183D3813228DA66C00E3CC74 /* URLExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		183D37FE228C3EFA00E3CC74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				183D3805228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift in Sources */,
+				183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		183D3808228C3EFA00E3CC74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 183D37DD228C3AE700E3CC74 /* MobileBuyersGuide */;
+			targetProxy = 183D3807228C3EFA00E3CC74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		183D37E5228C3AE800E3CC74 /* Main.storyboard */ = {
@@ -314,6 +488,46 @@
 			};
 			name = Release;
 		};
+		183D380A228C3EFA00E3CC74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4TFEU94KP6;
+				INFOPLIST_FILE = MobileBuyersGuideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkdesilva.MobileBuyersGuideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileBuyersGuide.app/MobileBuyersGuide";
+			};
+			name = Debug;
+		};
+		183D380B228C3EFA00E3CC74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4TFEU94KP6;
+				INFOPLIST_FILE = MobileBuyersGuideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkdesilva.MobileBuyersGuideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileBuyersGuide.app/MobileBuyersGuide";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +545,15 @@
 			buildConfigurations = (
 				183D37F1228C3AE900E3CC74 /* Debug */,
 				183D37F2228C3AE900E3CC74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		183D3809228C3EFA00E3CC74 /* Build configuration list for PBXNativeTarget "MobileBuyersGuideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				183D380A228C3EFA00E3CC74 /* Debug */,
+				183D380B228C3EFA00E3CC74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
