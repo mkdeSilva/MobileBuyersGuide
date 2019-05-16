@@ -18,6 +18,7 @@
 		183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */; };
 		183D3813228DA66C00E3CC74 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3812228DA66C00E3CC74 /* URLExtension.swift */; };
 		183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */; };
+		183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPI.swift; sourceTree = "<group>"; };
 		183D3812228DA66C00E3CC74 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPIProtocol.swift; sourceTree = "<group>"; };
+		183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMobilePhoneAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		183D3803228C3EFA00E3CC74 /* MobileBuyersGuideTests */ = {
 			isa = PBXGroup;
 			children = (
+				183D3816228DBB3500E3CC74 /* Mocks */,
 				183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */,
 				183D3806228C3EFA00E3CC74 /* Info.plist */,
 			);
@@ -173,6 +176,14 @@
 				183D3812228DA66C00E3CC74 /* URLExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		183D3816228DBB3500E3CC74 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183D3805228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift in Sources */,
+				183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
