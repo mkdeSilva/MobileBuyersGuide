@@ -10,6 +10,7 @@ import XCTest
 @testable import MobileBuyersGuide
 
 class MobileBuyersGuideTests: XCTestCase {
+    
     func testMobilePhoneDataResponse() {
         let phoneData = [
             [
@@ -53,7 +54,7 @@ class MobileBuyersGuideTests: XCTestCase {
                 "id": 6,
                 "mobile_id": 1,
                 "url": "https://www.91-img.com/gallery_images_uploads/b/4/b493185e7767c2a99cfeef712b11377f625766f2.jpg"
-                ], [
+            ], [
                 "id": 7,
                 "mobile_id": 1,
                 "url": "https://www.91-img.com/gallery_images_uploads/c/3/c32cff8945621ad06c929f50af9f7c55f978c726.jpg"
@@ -68,6 +69,42 @@ class MobileBuyersGuideTests: XCTestCase {
                 XCTAssert(details.last?.id == 7)
             }
         }
+    }
+    
+    func testFormattedPrice() {
+        let price = 238.483
+        let formattedPrice = price.formattedPrice()
+        XCTAssert(formattedPrice == "$238.48")
+    }
+    
+    func testConstructViewModelFromModel()
+    {
+        let mobileModel = MobilePhone(thumbImageURL: "someURL", rating: 5.0, price: 999.99, brand: "Apple", description: "Not a potato", name: "iPhone 3GS", id: 1)
+        
+        let mobileViewModel = MobileViewModel(mobile: mobileModel)
+        
+        XCTAssertTrue(mobileViewModel.modelName == "iPhone 3GS")
+    }
+    
+    func testListFavourites() {
+        
+        let mobiles = [
+            MobilePhone(thumbImageURL: "onePlusUrl", rating: 4.8, price: 699.3, brand: "OnePlus", description: "Not a two minus", name: "OnePlus 7 Pro", id : 1),
+            MobilePhone(thumbImageURL: "ancient.jpeg", rating: 2.3, price: 231.2, brand: "Palm", description: "Is this ancient?", name: "Palm TX", id : 2),
+            MobilePhone(thumbImageURL: "hotStuff", rating: 3, price: 23.3, brand: "Samsung", description: "These things aren't allowed on planes", name: "Samsung Note 7", id : 3),
+        ]
+        
+        let viewModels = mobiles.compactMap(MobileViewModel.init)
+        let mobileList = MobilePhonesList(mobiles: viewModels, showFavourites: false)
+        
+        viewModels[0].isFavourite.toggle()
+
+        XCTAssert(mobileList.mobilesToDisplay.count > 0)
+        mobileList.showFavourites = true
+        XCTAssertEqual(mobileList.mobilesToDisplay.count, 1)
+        viewModels[1].isFavourite.toggle()
+        XCTAssertEqual(mobileList.mobilesToDisplay.count, 2)
+        
     }
 }
 

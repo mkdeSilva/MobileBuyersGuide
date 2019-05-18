@@ -17,13 +17,13 @@ enum APIError : Error {
 
 class MobilePhoneAPI {
     
-    let session : URLSession
+    private let session : URLSession
     
-    let jsonDecoder : JSONDecoder = JSONDecoder()
+    private let jsonDecoder : JSONDecoder = JSONDecoder()
     
-    let baseURL = URL(string: "https://scb-test-mobile.herokuapp.com/api/")
-    let mobileString = "mobiles"
-    let imagesString = "images"
+    private let baseURL = URL(string: "https://scb-test-mobile.herokuapp.com/api/")
+    private let mobileString = "mobiles"
+    private let imagesString = "images"
     
     init(session: URLSession = URLSession.shared) {
         self.session = session
@@ -33,7 +33,7 @@ class MobilePhoneAPI {
         }
     }
     
-    private func request<T : Decodable>(from url : URL, completion : @escaping (Result<T, APIError>) -> Void) {
+    private func requestJSON<T : Decodable>(from url : URL, completion : @escaping (Result<T, APIError>) -> Void) {
         
         let dataTask = session.dataTask(with: url) { (result) in
             switch(result)
@@ -48,9 +48,8 @@ class MobilePhoneAPI {
                 do {
                     print(data)
                     let values = try self.jsonDecoder.decode(T.self, from: data)
-                    DispatchQueue.main.async {
-                        completion(.success(values))
-                    }
+                    completion(.success(values))
+                    
                 } catch {
                     completion(.failure(.invalidJSON))
                 }
@@ -60,16 +59,35 @@ class MobilePhoneAPI {
         dataTask.resume()
     }
     
-   
+    private func download(from url : URL, completion : @escaping (Result<Data, APIError>) -> Void) {
+        
+        let dataTask = session.dataTask(with: url) { (result) in
+            switch(result)
+            {
+            case .failure(_):
+                completion(.failure(.apiError))
+            case .success(let (response, data)):
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 else {
+                    completion(.failure(.invalidResponse))
+                    return
+                }
+                completion(.success(data))
+            }
+        }
+        
+        dataTask.resume()
+    }
+    
 }
 
 extension MobilePhoneAPI : MobilePhoneAPIProtocol {
+    
     public func getAllMobilePhoneData(result: @escaping (Result<[MobilePhone], APIError>) -> Void) {
         guard var url = baseURL else { return }
         
         url.appendPathComponent(mobileString)
         
-        request(from: url, completion: result)
+        requestJSON(from: url, completion: result)
     }
     
     public func getMobileDetail(mobileID : Int, result: @escaping (Result<[MobilePhoneDetail], APIError>) -> Void) {
@@ -79,7 +97,15 @@ extension MobilePhoneAPI : MobilePhoneAPIProtocol {
         url.appendPathComponent(String(mobileID))
         url.appendPathComponent(imagesString)
         
-        request(from: url, completion: result)
+        requestJSON(from: url, completion: result)
+    }
+    
+    public func getImage(urlString : String, result : @escaping (Result<Data, APIError>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        download(from: url, completion: result)
     }
 }
 

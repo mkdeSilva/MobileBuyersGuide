@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1822C949228FFA6E005418CE /* MobileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C948228FFA6E005418CE /* MobileCell.swift */; };
+		1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C94E22900B14005418CE /* MobileViewModel.swift */; };
+		1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95122900FA6005418CE /* URLSessionExtension.swift */; };
+		1822C95422903A7F005418CE /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95322903A7F005418CE /* DoubleExtension.swift */; };
+		1822C958229045AC005418CE /* MobilePhonesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C957229045AC005418CE /* MobilePhonesList.swift */; };
 		183D37E2228C3AE800E3CC74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37E1228C3AE800E3CC74 /* AppDelegate.swift */; };
-		183D37E4228C3AE800E3CC74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37E3228C3AE800E3CC74 /* ViewController.swift */; };
 		183D37E7228C3AE800E3CC74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E5228C3AE800E3CC74 /* Main.storyboard */; };
 		183D37E9228C3AE900E3CC74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E8228C3AE900E3CC74 /* Assets.xcassets */; };
 		183D37EC228C3AE900E3CC74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D37EA228C3AE900E3CC74 /* LaunchScreen.storyboard */; };
@@ -16,9 +20,9 @@
 		183D37FD228C3E7900E3CC74 /* MobilePhoneDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37FC228C3E7900E3CC74 /* MobilePhoneDetail.swift */; };
 		183D3805228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */; };
 		183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */; };
-		183D3813228DA66C00E3CC74 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3812228DA66C00E3CC74 /* URLExtension.swift */; };
 		183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */; };
 		183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */; };
+		185C6C32228FD5620088D7C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C6C31228FD5620088D7C3 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1822C948228FFA6E005418CE /* MobileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCell.swift; sourceTree = "<group>"; };
+		1822C94E22900B14005418CE /* MobileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileViewModel.swift; sourceTree = "<group>"; };
+		1822C95122900FA6005418CE /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		1822C95322903A7F005418CE /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		1822C957229045AC005418CE /* MobilePhonesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhonesList.swift; sourceTree = "<group>"; };
 		183D37DE228C3AE700E3CC74 /* MobileBuyersGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBuyersGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183D37E1228C3AE800E3CC74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		183D37E3228C3AE800E3CC74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		183D37E6228C3AE800E3CC74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		183D37E8228C3AE900E3CC74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183D37EB228C3AE900E3CC74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,9 +53,9 @@
 		183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileBuyersGuideTests.swift; sourceTree = "<group>"; };
 		183D3806228C3EFA00E3CC74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPI.swift; sourceTree = "<group>"; };
-		183D3812228DA66C00E3CC74 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPIProtocol.swift; sourceTree = "<group>"; };
 		183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMobilePhoneAPI.swift; sourceTree = "<group>"; };
+		185C6C31228FD5620088D7C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1822C94D22900B0A005418CE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1822C94E22900B14005418CE /* MobileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1822C95022900F9D005418CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1822C95122900FA6005418CE /* URLSessionExtension.swift */,
+				1822C95322903A7F005418CE /* DoubleExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		183D37D5228C3AE700E3CC74 = {
 			isa = PBXGroup;
 			children = (
@@ -89,11 +114,11 @@
 		183D37E0228C3AE700E3CC74 /* MobileBuyersGuide */ = {
 			isa = PBXGroup;
 			children = (
+				1822C94D22900B0A005418CE /* ViewModels */,
+				183D37ED228C3AE900E3CC74 /* Info.plist */,
 				183D380F228DA64600E3CC74 /* Helper */,
 				183D380C228CDDF000E3CC74 /* Service */,
 				183D37FB228C3DB800E3CC74 /* Views */,
-				183D37ED228C3AE900E3CC74 /* Info.plist */,
-				183D37F6228C3C8900E3CC74 /* ViewModels */,
 				183D37F5228C3C7E00E3CC74 /* ViewControllers */,
 				183D37F4228C3C7600E3CC74 /* Models */,
 				183D37F3228C3C4F00E3CC74 /* Supporting Files */,
@@ -117,6 +142,7 @@
 			children = (
 				183D37F7228C3CD700E3CC74 /* MobilePhone.swift */,
 				183D37FC228C3E7900E3CC74 /* MobilePhoneDetail.swift */,
+				1822C957229045AC005418CE /* MobilePhonesList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,21 +150,15 @@
 		183D37F5228C3C7E00E3CC74 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				183D37E3228C3AE800E3CC74 /* ViewController.swift */,
+				185C6C31228FD5620088D7C3 /* ViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		183D37F6228C3C8900E3CC74 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		183D37FB228C3DB800E3CC74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1822C948228FFA6E005418CE /* MobileCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,17 +185,9 @@
 		183D380F228DA64600E3CC74 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				183D3810228DA64F00E3CC74 /* Extensions */,
+				1822C95022900F9D005418CE /* Extensions */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		183D3810228DA64F00E3CC74 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				183D3812228DA66C00E3CC74 /* URLExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		183D3816228DBB3500E3CC74 /* Mocks */ = {
@@ -287,13 +299,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1822C95422903A7F005418CE /* DoubleExtension.swift in Sources */,
 				183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */,
-				183D37E4228C3AE800E3CC74 /* ViewController.swift in Sources */,
+				1822C958229045AC005418CE /* MobilePhonesList.swift in Sources */,
 				183D37F8228C3CD700E3CC74 /* MobilePhone.swift in Sources */,
+				1822C949228FFA6E005418CE /* MobileCell.swift in Sources */,
+				1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */,
+				1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */,
 				183D37E2228C3AE800E3CC74 /* AppDelegate.swift in Sources */,
 				183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */,
+				185C6C32228FD5620088D7C3 /* ViewController.swift in Sources */,
 				183D37FD228C3E7900E3CC74 /* MobilePhoneDetail.swift in Sources */,
-				183D3813228DA66C00E3CC74 /* URLExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4TFEU94KP6;
 				INFOPLIST_FILE = MobileBuyersGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4TFEU94KP6;
 				INFOPLIST_FILE = MobileBuyersGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

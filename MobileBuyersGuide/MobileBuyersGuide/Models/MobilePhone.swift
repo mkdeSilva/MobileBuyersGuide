@@ -15,5 +15,6 @@ struct MobilePhone : Codable {
     let brand : String
     let description : String
     let name : String
+    let id : Int
 }
 
