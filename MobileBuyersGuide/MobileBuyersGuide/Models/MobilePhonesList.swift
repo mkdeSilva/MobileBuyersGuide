@@ -12,16 +12,34 @@ class MobilePhonesList {
     var allMobiles : [MobileViewModel]
     var mobilesToDisplay : [MobileViewModel] {
         get {
-            return showFavourites ? allMobiles.filter(){$0.isFavourite} : allMobiles
+            let phones = showFavourites ? allMobiles.filter(){$0.isFavourite} : allMobiles
+
+            switch(sortOption) {
+            case .priceHighToLow:
+                return phones.sorted() {$0.price > $1.price}
+            case .priceLowToHigh:
+                return phones.sorted() {$0.price < $1.price}
+            case .ratingFiveToOne:
+                return phones.sorted() {$1.rating < $0.rating}
+            }
         }
         
         set {}
     }
+    
+    var sortOption : SortOption
     
     var showFavourites = false
     
     init(mobiles: [MobileViewModel], showFavourites : Bool) {
         allMobiles = mobiles
         self.showFavourites = showFavourites
+        self.sortOption = .ratingFiveToOne
     }
+}
+
+enum SortOption {
+    case priceLowToHigh
+    case priceHighToLow
+    case ratingFiveToOne
 }

@@ -10,14 +10,21 @@ import UIKit
 
 protocol MobileListDelegate : class {
     func didTapFavourite(with index : Int)
+    func didTapSortPriceHighToLow()
+    func didTapSortPriceLowToHigh()
+    func didTapSortRatingHighToLow()
+    func didTapSortCancel()
 }
 
 class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
-    
+
     private var mobileList : MobilePhonesList = MobilePhonesList(mobiles: [], showFavourites: false)
     
     @IBAction func didTapSortButton(_ sender: UIButton) {
+        sortView.isHidden = false
     }
+    
+    @IBOutlet weak var sortView: SortView!
     
     @IBAction func didTapListToggleControl(_ sender: UISegmentedControl) {
         
@@ -38,6 +45,8 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sortView.delegate = self
+        sortView.isHidden = true
         fetchMobileList()
         tableView.dataSource = self
         tableView.delegate = self
@@ -78,6 +87,29 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    func didTapSortPriceHighToLow() {
+        mobileList.sortOption = .priceHighToLow
+        sortView.isHidden = true
+        tableView.reloadData()
+    }
+    
+    func didTapSortPriceLowToHigh() {
+        mobileList.sortOption = .priceLowToHigh
+        sortView.isHidden = true
+        tableView.reloadData()
+    }
+    
+    func didTapSortRatingHighToLow() {
+        mobileList.sortOption = .ratingFiveToOne
+        sortView.isHidden = true
+        tableView.reloadData()
+    }
+    
+    func didTapSortCancel() {
+        sortView.isHidden = true
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mobileList.mobilesToDisplay.count
     }
@@ -112,7 +144,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             mobileList.mobilesToDisplay[indexPath.row].isFavourite.toggle()
-            mobileList.mobilesToDisplay.remove(at: indexPath.row)
+            
             tableView.reloadData()
         }
     }
