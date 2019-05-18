@@ -69,5 +69,11 @@ class MobileBuyersGuideTests: XCTestCase {
             }
         }
     }
+    
+    func testFormattedPrice() {
+        let price = 238.483
+        let formattedPrice = price.formattedPrice()
+        XCTAssert(formattedPrice == "$238.48")
+    }
 }
 

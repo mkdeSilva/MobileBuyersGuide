@@ -10,6 +10,7 @@
 		1822C949228FFA6E005418CE /* MobileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C948228FFA6E005418CE /* MobileCell.swift */; };
 		1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C94E22900B14005418CE /* MobileViewModel.swift */; };
 		1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95122900FA6005418CE /* URLSessionExtension.swift */; };
+		1822C95422903A7F005418CE /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95322903A7F005418CE /* DoubleExtension.swift */; };
 		183D37E2228C3AE800E3CC74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37E1228C3AE800E3CC74 /* AppDelegate.swift */; };
 		183D37E7228C3AE800E3CC74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E5228C3AE800E3CC74 /* Main.storyboard */; };
 		183D37E9228C3AE900E3CC74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E8228C3AE900E3CC74 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		1822C948228FFA6E005418CE /* MobileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCell.swift; sourceTree = "<group>"; };
 		1822C94E22900B14005418CE /* MobileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileViewModel.swift; sourceTree = "<group>"; };
 		1822C95122900FA6005418CE /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		1822C95322903A7F005418CE /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		183D37DE228C3AE700E3CC74 /* MobileBuyersGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBuyersGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183D37E1228C3AE800E3CC74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		183D37E6228C3AE800E3CC74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				1822C95122900FA6005418CE /* URLSessionExtension.swift */,
+				1822C95322903A7F005418CE /* DoubleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1822C95422903A7F005418CE /* DoubleExtension.swift in Sources */,
 				183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */,
 				183D37F8228C3CD700E3CC74 /* MobilePhone.swift in Sources */,
 				1822C949228FFA6E005418CE /* MobileCell.swift in Sources */,

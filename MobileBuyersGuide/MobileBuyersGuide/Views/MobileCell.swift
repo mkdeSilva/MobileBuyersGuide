@@ -21,6 +21,8 @@ class MobileCell: UITableViewCell {
         delegate?.didTapFavourite(with: sender.tag)
     }
     
+    
+ 
     weak var delegate : MobileListDelegate?
     
     override func awakeFromNib() {
@@ -31,7 +33,7 @@ class MobileCell: UITableViewCell {
         phoneImageView.image = mobileViewModel.image
         phoneTitleLabel.text = mobileViewModel.modelName
         phoneDescriptionLabel.text = mobileViewModel.description
-        phonePriceLabel.text = "Price: \(mobileViewModel.price)"
+        phonePriceLabel.text = "Price: \(mobileViewModel.price.formattedPrice())"
         phoneRatingLabel.text = "Rating: \(mobileViewModel.rating)"
         
         setFavouriteButtonImage(favourite: mobileViewModel.isFavourite)
