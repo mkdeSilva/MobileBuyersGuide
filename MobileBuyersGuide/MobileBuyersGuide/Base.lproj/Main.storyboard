@@ -39,6 +39,7 @@
                                     <constraint firstAttribute="bottom" secondItem="jpE-iN-Adu" secondAttribute="bottom" id="RYP-YM-gxx"/>
                                     <constraint firstItem="jpE-iN-Adu" firstAttribute="top" secondItem="9TU-e5-Vyv" secondAttribute="top" id="vbq-jW-G7a"/>
                                     <constraint firstAttribute="trailing" secondItem="jpE-iN-Adu" secondAttribute="trailing" constant="10" id="xPl-vx-2A8"/>
+                                    <constraint firstItem="jpE-iN-Adu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9TU-e5-Vyv" secondAttribute="leading" constant="200" id="zKu-GO-sOE"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fql-A8-GBD">
