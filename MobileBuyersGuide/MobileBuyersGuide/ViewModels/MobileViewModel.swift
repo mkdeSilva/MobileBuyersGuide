@@ -15,9 +15,8 @@ class MobileViewModel {
     let description : String
     let price : Double
     let rating : Double
-    
     let imageUrl : String
-    
+    let mobileId : Int
     var isFavourite : Bool
     
     init(mobile: MobilePhone)
@@ -28,7 +27,7 @@ class MobileViewModel {
         self.price = mobile.price
         self.rating = mobile.rating
         self.isFavourite = false
-        
+        self.mobileId = mobile.id
         self.imageUrl = mobile.thumbImageURL
     }
     
