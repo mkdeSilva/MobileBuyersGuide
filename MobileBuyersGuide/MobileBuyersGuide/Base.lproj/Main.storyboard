@@ -66,35 +66,35 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eSc-PQ-nG7">
-                                                    <rect key="frame" x="10" y="0.0" width="83" height="176.5"/>
+                                                    <rect key="frame" x="10" y="10" width="103.5" height="156.5"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HeC-II-5UR">
-                                                    <rect key="frame" x="103" y="10" width="261" height="156.5"/>
+                                                    <rect key="frame" x="123.5" y="10" width="240.5" height="156.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordinary Phone Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-aa-NOc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="261" height="37.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="240.5" height="41"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWv-K6-M6i">
-                                                            <rect key="frame" x="0.0" y="47.5" width="261" height="60"/>
+                                                            <rect key="frame" x="0.0" y="51" width="240.5" height="50.5"/>
                                                             <string key="text">This phone is insane as it hits all 4 great pillars of being a good smartphone. These are : Battery, Screen, Build Quality, and Price.</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-xs-P4S">
-                                                            <rect key="frame" x="0.0" y="117.5" width="261" height="39"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-xs-P4S">
+                                                            <rect key="frame" x="0.0" y="111.5" width="240.5" height="45"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-Et-TsB">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="142" height="39"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="145.5" height="45"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHE-Te-WhL">
-                                                                    <rect key="frame" x="166" y="0.0" width="95" height="39"/>
+                                                                    <rect key="frame" x="145.5" y="0.0" width="95" height="45"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -132,8 +132,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HeC-II-5UR" firstAttribute="trailing" secondItem="bvR-uR-qRu" secondAttribute="leading" constant="-10" id="234-YU-RXz"/>
-                                                <constraint firstItem="eSc-PQ-nG7" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" id="9x3-4D-m7U"/>
-                                                <constraint firstItem="eSc-PQ-nG7" firstAttribute="width" secondItem="LfW-cZ-TYf" secondAttribute="width" multiplier="0.2" id="Bev-eh-a1u"/>
+                                                <constraint firstItem="eSc-PQ-nG7" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" constant="10" id="9x3-4D-m7U"/>
+                                                <constraint firstItem="eSc-PQ-nG7" firstAttribute="width" secondItem="LfW-cZ-TYf" secondAttribute="width" multiplier="0.25" id="Bev-eh-a1u"/>
                                                 <constraint firstAttribute="bottom" secondItem="HeC-II-5UR" secondAttribute="bottom" constant="10" id="Cj9-Ar-C8o"/>
                                                 <constraint firstItem="HeC-II-5UR" firstAttribute="leading" secondItem="eSc-PQ-nG7" secondAttribute="trailing" constant="10" id="Dho-QS-kRO"/>
                                                 <constraint firstItem="HeC-II-5UR" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" constant="10" id="ONE-gd-yFg"/>
@@ -141,7 +141,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="bvR-uR-qRu" secondAttribute="trailing" constant="10" id="nqn-h9-QiN"/>
                                                 <constraint firstItem="bvR-uR-qRu" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" constant="10" id="rdu-na-e99"/>
                                                 <constraint firstAttribute="bottom" secondItem="bvR-uR-qRu" secondAttribute="bottom" constant="10" id="vmU-QU-egS"/>
-                                                <constraint firstAttribute="bottom" secondItem="eSc-PQ-nG7" secondAttribute="bottom" id="ycT-Xv-cHf"/>
+                                                <constraint firstAttribute="bottom" secondItem="eSc-PQ-nG7" secondAttribute="bottom" constant="10" id="ycT-Xv-cHf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

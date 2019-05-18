@@ -27,7 +27,6 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBAction func didTapListToggleControl(_ sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex) {
-            
         case 0:
             // Tapped on all segment
             showFavourites = false
@@ -40,7 +39,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     var showFavourites : Bool = false {
-        didSet{
+        didSet {
             if (showFavourites) {
                 mobilesToDisplay = allMobiles.filter() {$0.isFavourite}
             } else {
@@ -59,18 +58,41 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
+    let api = MobilePhoneAPI()
+    
     private func fetchMobileList() {
-        let api = MobilePhoneAPI()
         
-        api.getAllMobilePhoneData() { (result) in
+        api.getAllMobilePhoneData() { [unowned self] (result) in
             switch (result) {
             case .success(let values):
+                self.allMobiles = values.compactMap(MobileViewModel.init)
+                self.getMobileImages()
+
                 DispatchQueue.main.async {
-                    self.allMobiles = values.compactMap(MobileViewModel.init)
                     self.mobilesToDisplay = self.allMobiles
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getMobileImages() {
+        for mobile in allMobiles {
+            api.getImage(urlString: mobile.imageUrl) { [unowned self] (result) in
+                switch(result) {
+                case .success(let data):
+                    guard let image = UIImage(data: data) else {
+                        print("Bad data for thumbnail image for \(mobile.modelName)")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        mobile.setImage(image)
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }

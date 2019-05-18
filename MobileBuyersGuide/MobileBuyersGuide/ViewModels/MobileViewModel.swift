@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 class MobileViewModel {
-    let image : UIImage
+    var image : UIImage
     let modelName : String
     let description : String
     let price : Double
     let rating : Double
+    
+    let imageUrl : String
     
     var isFavourite : Bool
     
@@ -26,5 +28,11 @@ class MobileViewModel {
         self.price = mobile.price
         self.rating = mobile.rating
         self.isFavourite = false
+        
+        self.imageUrl = mobile.thumbImageURL
+    }
+    
+    func setImage(_ image: UIImage) {
+        self.image = image
     }
 }
