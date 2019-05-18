@@ -69,32 +69,32 @@
                                                     <rect key="frame" x="10" y="0.0" width="83" height="176.5"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HeC-II-5UR">
-                                                    <rect key="frame" x="103" y="10" width="311" height="156.5"/>
+                                                    <rect key="frame" x="103" y="10" width="261" height="156.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordinary Phone Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-aa-NOc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="37.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="261" height="37.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWv-K6-M6i">
-                                                            <rect key="frame" x="0.0" y="47.5" width="311" height="60"/>
+                                                            <rect key="frame" x="0.0" y="47.5" width="261" height="60"/>
                                                             <string key="text">This phone is insane as it hits all 4 great pillars of being a good smartphone. These are : Battery, Screen, Build Quality, and Price.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-xs-P4S">
-                                                            <rect key="frame" x="0.0" y="117.5" width="311" height="39"/>
+                                                            <rect key="frame" x="0.0" y="117.5" width="261" height="39"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-Et-TsB">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="39"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="142" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHE-Te-WhL">
-                                                                    <rect key="frame" x="216" y="0.0" width="95" height="39"/>
+                                                                    <rect key="frame" x="166" y="0.0" width="95" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -103,19 +103,49 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="bvR-uR-qRu" userLabel="Button Stack View">
+                                                    <rect key="frame" x="374" y="10" width="30" height="156.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXW-1X-qpX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="39"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="qot-GM-qmv"/>
+                                                            </constraints>
+                                                            <state key="normal" image="non-favourite"/>
+                                                            <connections>
+                                                                <action selector="didTapFavourite:" destination="yCI-bV-f66" eventType="touchUpInside" id="490-bH-czk"/>
+                                                            </connections>
+                                                        </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-sH-jmz">
+                                                            <rect key="frame" x="0.0" y="39" width="30" height="117.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="cXW-1X-qpX" firstAttribute="height" secondItem="bvR-uR-qRu" secondAttribute="height" multiplier="0.25" id="2Vn-mM-0D7"/>
+                                                        <constraint firstItem="cXW-1X-qpX" firstAttribute="leading" secondItem="bvR-uR-qRu" secondAttribute="leading" id="5Mo-ug-yiy"/>
+                                                        <constraint firstItem="cXW-1X-qpX" firstAttribute="top" secondItem="bvR-uR-qRu" secondAttribute="top" id="FXs-zc-FsR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cXW-1X-qpX" secondAttribute="trailing" id="JuN-ji-LxV"/>
+                                                        <constraint firstItem="aGh-sH-jmz" firstAttribute="height" secondItem="bvR-uR-qRu" secondAttribute="height" multiplier="0.75" id="apk-aq-Kug"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="HeC-II-5UR" firstAttribute="trailing" secondItem="bvR-uR-qRu" secondAttribute="leading" constant="-10" id="234-YU-RXz"/>
                                                 <constraint firstItem="eSc-PQ-nG7" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" id="9x3-4D-m7U"/>
                                                 <constraint firstItem="eSc-PQ-nG7" firstAttribute="width" secondItem="LfW-cZ-TYf" secondAttribute="width" multiplier="0.2" id="Bev-eh-a1u"/>
                                                 <constraint firstAttribute="bottom" secondItem="HeC-II-5UR" secondAttribute="bottom" constant="10" id="Cj9-Ar-C8o"/>
                                                 <constraint firstItem="HeC-II-5UR" firstAttribute="leading" secondItem="eSc-PQ-nG7" secondAttribute="trailing" constant="10" id="Dho-QS-kRO"/>
                                                 <constraint firstItem="HeC-II-5UR" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" constant="10" id="ONE-gd-yFg"/>
                                                 <constraint firstItem="eSc-PQ-nG7" firstAttribute="leading" secondItem="LfW-cZ-TYf" secondAttribute="leading" constant="10" id="VaP-C9-Jbc"/>
-                                                <constraint firstAttribute="trailing" secondItem="HeC-II-5UR" secondAttribute="trailing" id="mws-xl-gMn"/>
+                                                <constraint firstAttribute="trailing" secondItem="bvR-uR-qRu" secondAttribute="trailing" constant="10" id="nqn-h9-QiN"/>
+                                                <constraint firstItem="bvR-uR-qRu" firstAttribute="top" secondItem="LfW-cZ-TYf" secondAttribute="top" constant="10" id="rdu-na-e99"/>
+                                                <constraint firstAttribute="bottom" secondItem="bvR-uR-qRu" secondAttribute="bottom" constant="10" id="vmU-QU-egS"/>
                                                 <constraint firstAttribute="bottom" secondItem="eSc-PQ-nG7" secondAttribute="bottom" id="ycT-Xv-cHf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favouriteButton" destination="cXW-1X-qpX" id="IfB-O7-FSR"/>
                                             <outlet property="phoneDescriptionLabel" destination="CWv-K6-M6i" id="dTN-9M-4VW"/>
                                             <outlet property="phoneImageView" destination="eSc-PQ-nG7" id="JYL-m7-g6h"/>
                                             <outlet property="phonePriceLabel" destination="eDT-Et-TsB" id="FDU-A4-kSg"/>
@@ -154,4 +184,7 @@
             <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="non-favourite" width="40" height="39"/>
+    </resources>
 </document>

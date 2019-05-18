@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol MobileListDelegate : class {
+    func didTapFavourite(with index : Int)
+}
+
+class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
     
     var mobilesToDisplay = [MobileViewModel]() {
         didSet {
@@ -53,7 +57,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         fetchMobileList()
         tableView.dataSource = self
         tableView.delegate = self
-    
+        
     }
     
     private func fetchMobileList() {
@@ -61,14 +65,14 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         
         api.getAllMobilePhoneData() { (result) in
             switch (result) {
-                case .success(let values):
-                    self.allMobiles = values.compactMap(MobileViewModel.init)
-                    
-                    DispatchQueue.main.async {
-                        self.mobilesToDisplay = self.allMobiles
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+            case .success(let values):
+                self.allMobiles = values.compactMap(MobileViewModel.init)
+                
+                DispatchQueue.main.async {
+                    self.mobilesToDisplay = self.allMobiles
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -80,14 +84,23 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mobileCell", for: indexPath) as! MobileCell
         
-        cell.configure(mobileViewModel: mobilesToDisplay[indexPath.row])
-        cell.accessoryType = .detailButton
+        let viewModel = mobilesToDisplay[indexPath.row]
+        cell.configure(mobileViewModel: viewModel, index: indexPath.row)
+        cell.delegate = self
+        
+        cell.setFavouriteButtonState(hidden: showFavourites)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vm = mobilesToDisplay[indexPath.row]
-        print("tapped on \(vm.modelName)")
-        vm.isFavourite = !vm.isFavourite
+        print("tapped on: \(vm.modelName).  should enter detail view")
     }
+    
+    func didTapFavourite(with index: Int) {
+        mobilesToDisplay[index].isFavourite.toggle()
+        tableView.reloadData()
+    }
+    
 }
