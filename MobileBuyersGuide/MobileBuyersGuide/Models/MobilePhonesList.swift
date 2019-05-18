@@ -13,10 +13,10 @@ class MobilePhonesList {
     var mobilesToDisplay : [MobileViewModel] {
         get {
             let phones = showFavourites ? allMobiles.filter(){$0.isFavourite} : allMobiles
-            
+
             switch(sortOption) {
             case .priceHighToLow:
-                return phones.sorted() {$1.price < $0.price}
+                return phones.sorted() {$0.price > $1.price}
             case .priceLowToHigh:
                 return phones.sorted() {$0.price < $1.price}
             case .ratingFiveToOne:

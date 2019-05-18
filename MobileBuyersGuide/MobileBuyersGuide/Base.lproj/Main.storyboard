@@ -156,14 +156,87 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oho-w7-ADx" customClass="SortView" customModule="MobileBuyersGuide" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2l-a9-sJf">
+                                        <rect key="frame" x="70.5" y="300" width="273" height="296"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-vP-j99">
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="296"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bq-x3-nX6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="59.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxM-Eo-8La" userLabel="Price Asc. Button">
+                                                        <rect key="frame" x="0.0" y="59.5" width="273" height="59"/>
+                                                        <state key="normal" title="Price low to high"/>
+                                                        <connections>
+                                                            <action selector="didTapPriceLowToHigh:" destination="Oho-w7-ADx" eventType="touchUpInside" id="mXT-AS-XYD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDV-M9-D8Q" userLabel="Price Desc. Button">
+                                                        <rect key="frame" x="0.0" y="118.5" width="273" height="59"/>
+                                                        <state key="normal" title="Price high to low"/>
+                                                        <connections>
+                                                            <action selector="didTapPriceHighToLow:" destination="Oho-w7-ADx" eventType="touchUpInside" id="pKH-NW-HO5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP7-rW-LUI" userLabel="Rating Button">
+                                                        <rect key="frame" x="0.0" y="177.5" width="273" height="59"/>
+                                                        <state key="normal" title="Rating"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingHighToLow:" destination="Oho-w7-ADx" eventType="touchUpInside" id="gVU-0U-ROW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nJ-AG-Fyv" userLabel="Cancel Button">
+                                                        <rect key="frame" x="0.0" y="236.5" width="273" height="59.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <state key="normal" title="Cancel"/>
+                                                        <connections>
+                                                            <action selector="didTapCancel:" destination="Oho-w7-ADx" eventType="touchUpInside" id="PA1-UI-4Gi"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="LUR-vP-j99" firstAttribute="leading" secondItem="M2l-a9-sJf" secondAttribute="leading" id="0J4-tU-Rka"/>
+                                            <constraint firstItem="LUR-vP-j99" firstAttribute="top" secondItem="M2l-a9-sJf" secondAttribute="top" id="F2a-XC-MdN"/>
+                                            <constraint firstAttribute="bottom" secondItem="LUR-vP-j99" secondAttribute="bottom" id="phO-RF-pjS"/>
+                                            <constraint firstAttribute="trailing" secondItem="LUR-vP-j99" secondAttribute="trailing" id="rje-Tp-dfr"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="M2l-a9-sJf" firstAttribute="height" secondItem="Oho-w7-ADx" secondAttribute="height" multiplier="0.33" id="NXf-KQ-bAM"/>
+                                    <constraint firstItem="M2l-a9-sJf" firstAttribute="centerX" secondItem="Oho-w7-ADx" secondAttribute="centerX" id="QeT-Ke-lwL"/>
+                                    <constraint firstItem="M2l-a9-sJf" firstAttribute="width" secondItem="Oho-w7-ADx" secondAttribute="width" multiplier="0.66" id="XQE-7z-j3B"/>
+                                    <constraint firstItem="M2l-a9-sJf" firstAttribute="centerY" secondItem="Oho-w7-ADx" secondAttribute="centerY" id="chf-lZ-8Nh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rgr-u4-ad9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="2us-Pq-sEZ"/>
                             <constraint firstItem="Rgr-u4-ad9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BGR-pt-bD1"/>
+                            <constraint firstItem="Oho-w7-ADx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Dk9-Lo-Qrq"/>
+                            <constraint firstItem="Oho-w7-ADx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J7B-6K-FUD"/>
                             <constraint firstItem="f6V-WW-hZc" firstAttribute="top" secondItem="fql-A8-GBD" secondAttribute="bottom" constant="10" id="OHl-6b-YEN"/>
+                            <constraint firstItem="Oho-w7-ADx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="PFM-iV-Pme"/>
                             <constraint firstItem="fql-A8-GBD" firstAttribute="top" secondItem="9TU-e5-Vyv" secondAttribute="bottom" id="TC6-Xg-Q8d"/>
                             <constraint firstItem="fql-A8-GBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UrJ-NF-aaw"/>
+                            <constraint firstItem="Oho-w7-ADx" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="gff-4s-EoS"/>
                             <constraint firstItem="9TU-e5-Vyv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hOz-ct-CBX"/>
                             <constraint firstItem="f6V-WW-hZc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hpO-2d-orU"/>
                             <constraint firstItem="Rgr-u4-ad9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mPe-IN-ftB"/>
@@ -177,6 +250,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="sortView" destination="Oho-w7-ADx" id="nQn-vZ-vZz"/>
                         <outlet property="tableView" destination="f6V-WW-hZc" id="yc1-tB-Q1P"/>
                     </connections>
                 </viewController>
