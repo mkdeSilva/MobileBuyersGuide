@@ -14,40 +14,26 @@ protocol MobileListDelegate : class {
 
 class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
     
-    var mobilesToDisplay = [MobileViewModel]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
-    private(set) var allMobiles = [MobileViewModel]()
+    private var mobileList : MobilePhonesList = MobilePhonesList(mobiles: [], showFavourites: false)
     
     @IBAction func didTapSortButton(_ sender: UIButton) {
     }
     
     @IBAction func didTapListToggleControl(_ sender: UISegmentedControl) {
+        
         switch(sender.selectedSegmentIndex) {
         case 0:
             // Tapped on all segment
-            showFavourites = false
+            mobileList.showFavourites = false
+            tableView.reloadData()
         case 1:
             // Tapped on favourites segment
-            showFavourites = true
+            mobileList.showFavourites = true
+            tableView.reloadData()
         default:
             print("Unknown segment index")
         }
     }
-    
-    var showFavourites : Bool = false {
-        didSet {
-            if (showFavourites) {
-                mobilesToDisplay = allMobiles.filter() {$0.isFavourite}
-            } else {
-                mobilesToDisplay = allMobiles
-            }
-        }
-    }
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -55,22 +41,17 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         fetchMobileList()
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
     
     let api = MobilePhoneAPI()
     
     private func fetchMobileList() {
-        
         api.getAllMobilePhoneData() { [unowned self] (result) in
             switch (result) {
             case .success(let values):
-                self.allMobiles = values.compactMap(MobileViewModel.init)
+                self.mobileList = MobilePhonesList(mobiles: values.compactMap(MobileViewModel.init), showFavourites: false)
                 self.getMobileImages()
-
-                DispatchQueue.main.async {
-                    self.mobilesToDisplay = self.allMobiles
-                }
+                DispatchQueue.main.async { self.tableView.reloadData() }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -78,7 +59,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     private func getMobileImages() {
-        for mobile in allMobiles {
+        for mobile in mobileList.allMobiles {
             api.getImage(urlString: mobile.imageUrl) { [unowned self] (result) in
                 switch(result) {
                 case .success(let data):
@@ -98,43 +79,41 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mobilesToDisplay.count
+        return mobileList.mobilesToDisplay.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mobileCell", for: indexPath) as! MobileCell
         
-        let viewModel = mobilesToDisplay[indexPath.row]
+        let viewModel = mobileList.mobilesToDisplay[indexPath.row]
         cell.configure(mobileViewModel: viewModel, index: indexPath.row)
         cell.delegate = self
         
-        cell.setFavouriteButtonState(hidden: showFavourites)
+        cell.setFavouriteButtonState(hidden: mobileList.showFavourites)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vm = mobilesToDisplay[indexPath.row]
+        let vm = mobileList.mobilesToDisplay[indexPath.row]
         print("tapped on: \(vm.modelName).  should enter detail view")
     }
     
     func didTapFavourite(with index: Int) {
-        mobilesToDisplay[index].isFavourite.toggle()
+        mobileList.mobilesToDisplay[index].isFavourite.toggle()
         let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! MobileCell
-        cell.setFavouriteButtonImage(favourite: mobilesToDisplay[index].isFavourite)
-        
+        cell.setFavouriteButtonImage(favourite: mobileList.mobilesToDisplay[index].isFavourite)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return showFavourites
+        return mobileList.showFavourites
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            mobilesToDisplay[indexPath.row].isFavourite.toggle()
-            mobilesToDisplay.remove(at: indexPath.row)
+            mobileList.mobilesToDisplay[indexPath.row].isFavourite.toggle()
+            mobileList.mobilesToDisplay.remove(at: indexPath.row)
             tableView.reloadData()
         }
     }
-    
 }
