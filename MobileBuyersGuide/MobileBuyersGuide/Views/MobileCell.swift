@@ -23,6 +23,10 @@ class MobileCell: UITableViewCell {
     
     weak var delegate : MobileListDelegate?
     
+    override func awakeFromNib() {
+        favouriteButton.imageView?.contentMode = .scaleAspectFit
+    }
+    
     func configure(mobileViewModel: MobileViewModel, index: Int) {
         phoneImageView.image = mobileViewModel.image
         phoneTitleLabel.text = mobileViewModel.modelName
@@ -30,13 +34,17 @@ class MobileCell: UITableViewCell {
         phonePriceLabel.text = "Price: \(mobileViewModel.price)"
         phoneRatingLabel.text = "Rating: \(mobileViewModel.rating)"
         
-        if (mobileViewModel.isFavourite) {
+        setFavouriteButtonImage(favourite: mobileViewModel.isFavourite)
+       
+        favouriteButton.tag = index
+    }
+    
+    func setFavouriteButtonImage(favourite : Bool) {
+        if (favourite) {
             favouriteButton.setImage(UIImage(named: "favourite"), for: .normal)
         } else {
             favouriteButton.setImage(UIImage(named: "non-favourite"), for: .normal)
         }
-        favouriteButton.imageView?.contentMode = .scaleAspectFit
-        favouriteButton.tag = index
     }
     
     func setFavouriteButtonState(hidden : Bool) {

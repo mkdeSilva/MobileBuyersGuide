@@ -20,7 +20,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    var allMobiles = [MobileViewModel]()
+    private(set) var allMobiles = [MobileViewModel]()
     
     @IBAction func didTapSortButton(_ sender: UIButton) {
     }
@@ -53,7 +53,6 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchMobileList()
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,9 +65,8 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         api.getAllMobilePhoneData() { (result) in
             switch (result) {
             case .success(let values):
-                self.allMobiles = values.compactMap(MobileViewModel.init)
-                
                 DispatchQueue.main.async {
+                    self.allMobiles = values.compactMap(MobileViewModel.init)
                     self.mobilesToDisplay = self.allMobiles
                 }
             case .failure(let error):
@@ -100,7 +98,21 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func didTapFavourite(with index: Int) {
         mobilesToDisplay[index].isFavourite.toggle()
-        tableView.reloadData()
+        let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! MobileCell
+        cell.setFavouriteButtonImage(favourite: mobilesToDisplay[index].isFavourite)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return showFavourites
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            mobilesToDisplay[indexPath.row].isFavourite.toggle()
+            mobilesToDisplay.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
     
 }
