@@ -112,7 +112,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             mobileList.mobilesToDisplay[indexPath.row].isFavourite.toggle()
-            mobileList.mobilesToDisplay.remove(at: indexPath.row)
+            
             tableView.reloadData()
         }
     }
