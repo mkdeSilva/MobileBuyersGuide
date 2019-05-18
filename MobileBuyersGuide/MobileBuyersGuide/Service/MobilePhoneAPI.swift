@@ -48,9 +48,8 @@ class MobilePhoneAPI {
                 do {
                     print(data)
                     let values = try self.jsonDecoder.decode(T.self, from: data)
-                    DispatchQueue.main.async {
-                        completion(.success(values))
-                    }
+                    completion(.success(values))
+                    
                 } catch {
                     completion(.failure(.invalidJSON))
                 }
@@ -60,7 +59,7 @@ class MobilePhoneAPI {
         dataTask.resume()
     }
     
-   
+    
 }
 
 extension MobilePhoneAPI : MobilePhoneAPIProtocol {
