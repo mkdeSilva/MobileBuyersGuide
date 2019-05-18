@@ -9,10 +9,22 @@
 import Foundation
 import UIKit
 
-struct MobileViewModel {
+class MobileViewModel {
     let image : UIImage
     let modelName : String
     let description : String
     let price : Double
     let rating : Double
+    
+    var isFavourite : Bool
+    
+    init(mobile: MobilePhone)
+    {
+        self.image = UIImage(named: "unknown-phone-image")!
+        self.modelName = mobile.name
+        self.description = mobile.description
+        self.price = mobile.price
+        self.rating = mobile.rating
+        self.isFavourite = false
+    }
 }
