@@ -9,6 +9,8 @@
 import Foundation
 
 extension String {
+    
+    // Prefixes a string so it starts with https://
     mutating func prefixWithHTTPS() {
         if (self.hasPrefix("https"))
         {

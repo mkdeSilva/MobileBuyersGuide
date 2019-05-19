@@ -33,6 +33,9 @@ class MobilePhoneAPI {
         }
     }
     
+    // Requests JSON and decodes it to generic type T
+    // Calls completion handler either success with decoded values
+    // or failure with APIError
     private func requestJSON<T : Decodable>(from url : URL, completion : @escaping (Result<T, APIError>) -> Void) {
         
         let dataTask = session.dataTask(with: url) { (result) in
@@ -59,6 +62,8 @@ class MobilePhoneAPI {
         dataTask.resume()
     }
     
+    // Downloads data from a url and calls completion handler
+    // with data on success or APIError on failure
     private func download(from url : URL, completion : @escaping (Result<Data, APIError>) -> Void) {
         
         let dataTask = session.dataTask(with: url) { (result) in
@@ -82,6 +87,7 @@ class MobilePhoneAPI {
 
 extension MobilePhoneAPI : MobilePhoneAPIProtocol {
     
+    // Gets array of MobilePhone
     public func getAllMobilePhoneData(result: @escaping (Result<[MobilePhone], APIError>) -> Void) {
         guard var url = baseURL else { return }
         
@@ -90,6 +96,7 @@ extension MobilePhoneAPI : MobilePhoneAPIProtocol {
         requestJSON(from: url, completion: result)
     }
     
+    // Gets array of MobilePhoneDetail
     public func getMobileDetail(mobileID : Int, result: @escaping (Result<[MobilePhoneDetail], APIError>) -> Void) {
         guard var url = baseURL else { return }
         
@@ -100,6 +107,9 @@ extension MobilePhoneAPI : MobilePhoneAPIProtocol {
         requestJSON(from: url, completion: result)
     }
     
+    // Gets an image from a url
+    // Will prefix the urlString with "https://"
+    // if it does not contain
     public func getImage(urlString : String, result : @escaping (Result<Data, APIError>) -> Void) {
         
         var prefixedUrlString = urlString
@@ -109,9 +119,10 @@ extension MobilePhoneAPI : MobilePhoneAPIProtocol {
         guard let url = URL(string: prefixedUrlString) else {
             return
         }
-      
+        
         download(from: url, completion: result)
     }
+    
 }
 
 
