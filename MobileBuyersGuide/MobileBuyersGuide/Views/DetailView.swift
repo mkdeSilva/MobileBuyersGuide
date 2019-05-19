@@ -46,7 +46,6 @@ class DetailView: UIView {
     
     // Adds an imageView to the scrollView and calculates the frame for each image
     // Removes all subviews of the imageScrollView which also removes the activity indicator
-    
     fileprivate func setImagesInScrollView(_ images: [UIImage]) {
         
         imageScrollView.removeAllSubviews()

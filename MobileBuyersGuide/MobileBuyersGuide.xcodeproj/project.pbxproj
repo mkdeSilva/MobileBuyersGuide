@@ -10,6 +10,7 @@
 		18000DD82291542E0049629E /* PhoneAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DD72291542E0049629E /* PhoneAPITests.swift */; };
 		18000DDC2291574F0049629E /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DDB2291574F0049629E /* ExtensionTests.swift */; };
 		18000DDE22915B190049629E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DDD22915B190049629E /* UIViewExtension.swift */; };
+		18000DFF229171220049629E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DFE229171220049629E /* SplashView.swift */; };
 		1822C949228FFA6E005418CE /* MobileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C948228FFA6E005418CE /* MobileCell.swift */; };
 		1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C94E22900B14005418CE /* MobileViewModel.swift */; };
 		1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95122900FA6005418CE /* URLSessionExtension.swift */; };
@@ -47,6 +48,7 @@
 		18000DD72291542E0049629E /* PhoneAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAPITests.swift; sourceTree = "<group>"; };
 		18000DDB2291574F0049629E /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		18000DDD22915B190049629E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		18000DFE229171220049629E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		1822C948228FFA6E005418CE /* MobileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCell.swift; sourceTree = "<group>"; };
 		1822C94E22900B14005418CE /* MobileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileViewModel.swift; sourceTree = "<group>"; };
 		1822C95122900FA6005418CE /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				1822C948228FFA6E005418CE /* MobileCell.swift */,
 				1822C95922905BFF005418CE /* SortView.swift */,
 				1822C95D2290715A005418CE /* DetailView.swift */,
+				18000DFE229171220049629E /* SplashView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				185C6C32228FD5620088D7C3 /* ListViewController.swift in Sources */,
 				1822C96222907E88005418CE /* DetailViewModel.swift in Sources */,
 				183D37FD228C3E7900E3CC74 /* MobilePhoneDetail.swift in Sources */,
+				18000DFF229171220049629E /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
