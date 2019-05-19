@@ -59,6 +59,7 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         showSplashScreen()
         
         sortView.delegate = self
+        sortView.configure()
         sortView.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self

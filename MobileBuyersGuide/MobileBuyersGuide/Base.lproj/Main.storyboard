@@ -164,6 +164,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP7-rW-LUI" userLabel="Rating Button">
                                                         <rect key="frame" x="0.0" y="177.5" width="273" height="59"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <state key="normal" title="Rating"/>
                                                         <connections>
                                                             <action selector="didTapRatingHighToLow:" destination="Oho-w7-ADx" eventType="touchUpInside" id="gVU-0U-ROW"/>
@@ -201,6 +202,9 @@
                                     <constraint firstItem="M2l-a9-sJf" firstAttribute="width" secondItem="Oho-w7-ADx" secondAttribute="width" multiplier="0.66" id="XQE-7z-j3B"/>
                                     <constraint firstItem="M2l-a9-sJf" firstAttribute="centerY" secondItem="Oho-w7-ADx" secondAttribute="centerY" id="chf-lZ-8Nh"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="ratingHighToLowButton" destination="XP7-rW-LUI" id="Tg7-xU-oZP"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
