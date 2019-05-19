@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18000DD82291542E0049629E /* PhoneAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DD72291542E0049629E /* PhoneAPITests.swift */; };
+		18000DDC2291574F0049629E /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DDB2291574F0049629E /* ExtensionTests.swift */; };
 		1822C949228FFA6E005418CE /* MobileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C948228FFA6E005418CE /* MobileCell.swift */; };
 		1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C94E22900B14005418CE /* MobileViewModel.swift */; };
 		1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95122900FA6005418CE /* URLSessionExtension.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18000DD72291542E0049629E /* PhoneAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAPITests.swift; sourceTree = "<group>"; };
+		18000DDB2291574F0049629E /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		1822C948228FFA6E005418CE /* MobileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCell.swift; sourceTree = "<group>"; };
 		1822C94E22900B14005418CE /* MobileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileViewModel.swift; sourceTree = "<group>"; };
 		1822C95122900FA6005418CE /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				183D3816228DBB3500E3CC74 /* Mocks */,
 				183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */,
 				183D3806228C3EFA00E3CC74 /* Info.plist */,
+				18000DD72291542E0049629E /* PhoneAPITests.swift */,
+				18000DDB2291574F0049629E /* ExtensionTests.swift */,
 			);
 			path = MobileBuyersGuideTests;
 			sourceTree = "<group>";
@@ -337,8 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18000DD82291542E0049629E /* PhoneAPITests.swift in Sources */,
 				183D3805228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift in Sources */,
 				183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */,
+				18000DDC2291574F0049629E /* ExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
