@@ -46,7 +46,7 @@ class DetailViewController: UIViewController {
             return
         }
         
-        api.getMobileDetail(mobileID: viewModel.mobileId) { [unowned self] (result) in
+        api.getMobileDetail(mobileID: viewModel.mobileId) { (result) in
             switch (result) {
             case .failure(let error):
                 print(error.localizedDescription)
