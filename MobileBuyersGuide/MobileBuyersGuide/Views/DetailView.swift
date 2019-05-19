@@ -8,14 +8,21 @@
 
 import UIKit
 
-class DetailView: UIView, UIScrollViewDelegate {
+class DetailView: UIView {
     
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var isConfigured : Bool = false
+    
     func configure(with viewModel: MobileViewModel) {
+
+        if (isConfigured) {
+            return
+        }
+        
         ratingLabel.text = "Rating: \(viewModel.rating)"
         priceLabel.text = "Price: \(viewModel.price.formattedPrice())"
         descriptionLabel.text = viewModel.description
@@ -25,19 +32,20 @@ class DetailView: UIView, UIScrollViewDelegate {
             return
         }
         
-        imageScrollView.isScrollEnabled = true
-        
         for i in 0..<images.count {
             
             let imageView = UIImageView()
             imageView.image = images[i]
             let xPosition = UIScreen.main.bounds.width * CGFloat(i)
+            
             imageView.frame = CGRect(x: xPosition, y: 0, width: imageScrollView.frame.width, height: imageScrollView.frame.height)
             imageView.contentMode = .scaleAspectFit
-            
-            imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(i + 1)
             imageScrollView.addSubview(imageView)
-            imageScrollView.delegate = self
         }
+
+        imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(images.count)
+        isConfigured = true
     }
 }
+
+
