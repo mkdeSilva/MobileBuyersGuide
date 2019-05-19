@@ -39,6 +39,7 @@ class DetailViewController: UIViewController {
             if (detailView != nil) {
                 DispatchQueue.main.async {
                     self.detailView.configure(with: viewModel)
+                    self.detailView.setImages(with: viewModel)
                 }
             } else {
                 currentViewModel = viewModel
@@ -46,6 +47,10 @@ class DetailViewController: UIViewController {
             return
         }
         
+        DispatchQueue.main.async {
+            self.detailView.configure(with: viewModel)
+        }
+
         api.getMobileDetail(mobileID: viewModel.mobileId) { (result) in
             switch (result) {
             case .failure(let error):
@@ -64,7 +69,7 @@ class DetailViewController: UIViewController {
         viewModel.detailViewModel = detailViewModel
         
         for urlString in urlStrings {
-            api.getImage(urlString: urlString) { [unowned self] (result) in
+            api.getImage(urlString: urlString) { (result) in
                 switch(result) {
                 case .failure(let error):
                     print("Failed to get image: \(error.localizedDescription)")
@@ -75,7 +80,7 @@ class DetailViewController: UIViewController {
                     }
                     DispatchQueue.main.async {
                         detailViewModel.images.append(image)
-                        self.detailView.configure(with: viewModel)
+                        self.detailView.setImages(with: viewModel)
                     }
                 }
             }

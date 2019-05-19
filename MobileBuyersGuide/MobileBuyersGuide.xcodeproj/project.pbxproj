@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18000DD82291542E0049629E /* PhoneAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DD72291542E0049629E /* PhoneAPITests.swift */; };
 		18000DDC2291574F0049629E /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DDB2291574F0049629E /* ExtensionTests.swift */; };
+		18000DDE22915B190049629E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18000DDD22915B190049629E /* UIViewExtension.swift */; };
 		1822C949228FFA6E005418CE /* MobileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C948228FFA6E005418CE /* MobileCell.swift */; };
 		1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C94E22900B14005418CE /* MobileViewModel.swift */; };
 		1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95122900FA6005418CE /* URLSessionExtension.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		18000DD72291542E0049629E /* PhoneAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAPITests.swift; sourceTree = "<group>"; };
 		18000DDB2291574F0049629E /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
+		18000DDD22915B190049629E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		1822C948228FFA6E005418CE /* MobileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCell.swift; sourceTree = "<group>"; };
 		1822C94E22900B14005418CE /* MobileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileViewModel.swift; sourceTree = "<group>"; };
 		1822C95122900FA6005418CE /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				1822C95122900FA6005418CE /* URLSessionExtension.swift */,
 				1822C95322903A7F005418CE /* DoubleExtension.swift */,
 				1822C96522911873005418CE /* StringExtension.swift */,
+				18000DDD22915B190049629E /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */,
 				1822C958229045AC005418CE /* MobilePhonesList.swift in Sources */,
 				183D37F8228C3CD700E3CC74 /* MobilePhone.swift in Sources */,
+				18000DDE22915B190049629E /* UIViewExtension.swift in Sources */,
 				1822C949228FFA6E005418CE /* MobileCell.swift in Sources */,
 				1822C94F22900B14005418CE /* MobileViewModel.swift in Sources */,
 				1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */,

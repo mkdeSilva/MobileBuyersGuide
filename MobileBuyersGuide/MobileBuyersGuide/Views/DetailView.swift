@@ -15,31 +15,27 @@ class DetailView: UIView {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var isConfigured : Bool = false
-    
-    // Configure detailView if not configured
     // Sets the rating, price, and description
-    // Calls SetImagesInScrollView
     func configure(with viewModel: MobileViewModel) {
-        if (isConfigured) {
-            return
-        }
-        
         ratingLabel.text = "Rating: \(viewModel.rating)"
         priceLabel.text = "Price: \(viewModel.price.formattedPrice())"
         descriptionLabel.text = viewModel.description
-        
+    }
+    
+    // Calls SetImagesInScrollView when images are received
+    func setImages(with viewModel: MobileViewModel) {
         guard let images = viewModel.detailViewModel?.images else {
             print("Cannot show images")
             return
         }
-        SetImagesInScrollView(images)
         
-        isConfigured = true
+        SetImagesInScrollView(images)
     }
     
     // Adds an imageView to the scrollView and calculates the frame for each image
     fileprivate func SetImagesInScrollView(_ images: [UIImage]) {
+        
+        imageScrollView.removeAllSubviews()
         
         for i in 0..<images.count {
             let imageView = UIImageView()
@@ -54,5 +50,3 @@ class DetailView: UIView {
         imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(images.count)
     }
 }
-
-
