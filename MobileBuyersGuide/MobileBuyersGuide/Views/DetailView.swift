@@ -17,8 +17,10 @@ class DetailView: UIView {
     
     var isConfigured : Bool = false
     
+    // Configure detailView if not configured
+    // Sets the rating, price, and description
+    // Calls SetImagesInScrollView
     func configure(with viewModel: MobileViewModel) {
-
         if (isConfigured) {
             return
         }
@@ -31,9 +33,15 @@ class DetailView: UIView {
             print("Cannot show images")
             return
         }
+        SetImagesInScrollView(images)
+        
+        isConfigured = true
+    }
+    
+    // Adds an imageView to the scrollView and calculates the frame for each image
+    fileprivate func SetImagesInScrollView(_ images: [UIImage]) {
         
         for i in 0..<images.count {
-            
             let imageView = UIImageView()
             imageView.image = images[i]
             let xPosition = UIScreen.main.bounds.width * CGFloat(i)
@@ -42,9 +50,8 @@ class DetailView: UIView {
             imageView.contentMode = .scaleAspectFit
             imageScrollView.addSubview(imageView)
         }
-
+        
         imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(images.count)
-        isConfigured = true
     }
 }
 
