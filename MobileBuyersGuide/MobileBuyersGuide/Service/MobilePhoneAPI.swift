@@ -101,10 +101,15 @@ extension MobilePhoneAPI : MobilePhoneAPIProtocol {
     }
     
     public func getImage(urlString : String, result : @escaping (Result<Data, APIError>) -> Void) {
-        guard let url = URL(string: urlString) else {
+        
+        var prefixedUrlString = urlString
+        
+        prefixedUrlString.prefixWithHTTPS()
+        
+        guard let url = URL(string: prefixedUrlString) else {
             return
         }
-        
+      
         download(from: url, completion: result)
     }
 }

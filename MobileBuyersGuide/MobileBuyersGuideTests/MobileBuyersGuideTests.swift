@@ -126,5 +126,18 @@ class MobileBuyersGuideTests: XCTestCase {
         XCTAssertEqual(mobileList.mobilesToDisplay[1].price, 231.2)
         XCTAssertEqual(mobileList.mobilesToDisplay[2].price, 699.3)
     }
+    
+    func testReplaceURLStringWithHTTPS() {
+        var urlWithHTTPS = "https://www.91.img.com"
+        var urlWithHTTP = "http://www.91.img.com"
+        var urlWithout = "www.91.img.com"
+        
+        urlWithHTTPS.prefixWithHTTPS()
+        urlWithHTTP.prefixWithHTTPS()
+        urlWithout.prefixWithHTTPS()
+        
+        XCTAssertEqual("https://www.91.img.com", urlWithHTTPS)
+        XCTAssertEqual("https://www.91.img.com", urlWithHTTP)
+        XCTAssertEqual("https://www.91.img.com", urlWithout)
+    }
 }
-
