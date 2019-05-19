@@ -17,7 +17,7 @@ protocol MobileListDelegate : class {
 }
 
 class ListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
-
+    
     // MobileList which contains what phones to display
     private var mobileList : MobilePhonesList = MobilePhonesList(mobiles: [], showFavourites: false)
     
@@ -46,17 +46,23 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    var splashView : SplashView?
+    
     let api = MobilePhoneAPI()
-
+    
+    // Shows a splash screen
     // Hide the SortView and set table view delegates and data source
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        splashView = SplashView(view)
+        showSplashScreen()
+        
         sortView.delegate = self
         sortView.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self
         fetchMobileList()
-       
     }
     
     // If a row has been selected and the list view is appearing, de-select the selected row
@@ -68,15 +74,23 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: API Requests
     // Get mobile list data from the API and call getMobileImages when done
+    // If an error occurs, it will print the error and display error splash screen
     private func fetchMobileList() {
         api.getAllMobilePhoneData() { [unowned self] (result) in
             switch (result) {
             case .success(let values):
                 self.mobileList = MobilePhonesList(mobiles: values.compactMap(MobileViewModel.init), showFavourites: false)
                 self.getMobileImages()
-                DispatchQueue.main.async { self.tableView.reloadData() }
+                
+                DispatchQueue.main.async {
+                    self.hideSplashScreen()
+                    self.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.showErrorSplashScreen()
+                }
             }
         }
     }
@@ -172,5 +186,23 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         let viewModel = mobileList.mobilesToDisplay[tableView.indexPathForSelectedRow!.row]
         destination.configure(with: viewModel)
     }
-
+    
+    // MARK: Splash Screen
+    
+    // Hides the nav bar and shows the splash screen
+    fileprivate func showSplashScreen() {
+        self.navigationController?.isNavigationBarHidden = true
+        splashView?.showSplash()
+    }
+    
+    // Shows the nav bar and hides the splash screen
+    fileprivate func hideSplashScreen() {
+        self.navigationController?.isNavigationBarHidden = false
+        splashView?.hideSplash()
+    }
+    
+    // Shows an error label on the splash screen
+    fileprivate func showErrorSplashScreen() {
+        splashView?.showErrorSplash()
+    }
 }
