@@ -92,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18000DDF22915BE10049629E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */,
+				18000DD72291542E0049629E /* PhoneAPITests.swift */,
+				18000DDB2291574F0049629E /* ExtensionTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		1822C94D22900B0A005418CE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,15 +144,15 @@
 			isa = PBXGroup;
 			children = (
 				183D37ED228C3AE900E3CC74 /* Info.plist */,
-				1822C94D22900B0A005418CE /* ViewModels */,
-				183D380F228DA64600E3CC74 /* Helper */,
-				183D380C228CDDF000E3CC74 /* Service */,
-				183D37FB228C3DB800E3CC74 /* Views */,
-				183D37F5228C3C7E00E3CC74 /* ViewControllers */,
-				183D37F4228C3C7600E3CC74 /* Models */,
-				183D37F3228C3C4F00E3CC74 /* Supporting Files */,
 				183D37E1228C3AE800E3CC74 /* AppDelegate.swift */,
+				183D380F228DA64600E3CC74 /* Helper */,
 				183D37E5228C3AE800E3CC74 /* Main.storyboard */,
+				183D37F4228C3C7600E3CC74 /* Models */,
+				183D380C228CDDF000E3CC74 /* Service */,
+				183D37F3228C3C4F00E3CC74 /* Supporting Files */,
+				183D37F5228C3C7E00E3CC74 /* ViewControllers */,
+				1822C94D22900B0A005418CE /* ViewModels */,
+				183D37FB228C3DB800E3CC74 /* Views */,
 			);
 			path = MobileBuyersGuide;
 			sourceTree = "<group>";
@@ -188,11 +198,9 @@
 		183D3803228C3EFA00E3CC74 /* MobileBuyersGuideTests */ = {
 			isa = PBXGroup;
 			children = (
+				18000DDF22915BE10049629E /* Tests */,
 				183D3816228DBB3500E3CC74 /* Mocks */,
-				183D3804228C3EFA00E3CC74 /* MobileBuyersGuideTests.swift */,
 				183D3806228C3EFA00E3CC74 /* Info.plist */,
-				18000DD72291542E0049629E /* PhoneAPITests.swift */,
-				18000DDB2291574F0049629E /* ExtensionTests.swift */,
 			);
 			path = MobileBuyersGuideTests;
 			sourceTree = "<group>";

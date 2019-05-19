@@ -49,10 +49,8 @@ class MobilePhoneAPI {
                     return
                 }
                 do {
-                    print(data)
                     let values = try self.jsonDecoder.decode(T.self, from: data)
                     completion(.success(values))
-                    
                 } catch {
                     completion(.failure(.invalidJSON))
                 }
@@ -82,7 +80,6 @@ class MobilePhoneAPI {
         
         dataTask.resume()
     }
-    
 }
 
 extension MobilePhoneAPI : MobilePhoneAPIProtocol {
@@ -122,9 +119,4 @@ extension MobilePhoneAPI : MobilePhoneAPIProtocol {
         
         download(from: url, completion: result)
     }
-    
 }
-
-
-
-
