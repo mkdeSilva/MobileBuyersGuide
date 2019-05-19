@@ -9,7 +9,8 @@
 import Foundation
 
 class MobilePhonesList {
-    var allMobiles : [MobileViewModel]
+    fileprivate var allMobiles : [MobileViewModel]
+    
     var mobilesToDisplay : [MobileViewModel] {
         get {
             let phones = showFavourites ? allMobiles.filter(){$0.isFavourite} : allMobiles
