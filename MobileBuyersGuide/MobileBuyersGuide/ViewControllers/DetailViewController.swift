@@ -35,6 +35,8 @@ class DetailViewController: UIViewController {
     // then it will download the information from API and call getDetailImages() and assign DetailViewModel to MobileViewModel
     // If it already has one, configure
     func configure(with viewModel : MobileViewModel) {
+        self.title = viewModel.modelName
+
         if (viewModel.detailViewModel != nil) {
             if (detailView != nil) {
                 DispatchQueue.main.async {
