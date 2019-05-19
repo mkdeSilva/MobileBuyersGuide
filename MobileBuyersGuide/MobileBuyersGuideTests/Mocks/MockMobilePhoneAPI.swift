@@ -11,13 +11,14 @@ import Foundation
 @testable import MobileBuyersGuide
 
 class MockMobilePhoneAPI : MobilePhoneAPIProtocol {
-    
     let mockMobileDetailData : [[String : Any]]
     let mockMobilePhoneData : [[String : Any]]
+    let mockImageData : Data?
     
-    init(phoneData : [[String : Any]] = [["":""]] , detailData : [[String : Any]] = [["":""]]) {
+    init(phoneData : [[String : Any]] = [["":""]] , detailData : [[String : Any]] = [["":""]], imageData : Data? = nil) {
         mockMobilePhoneData = phoneData
         mockMobileDetailData = detailData
+        mockImageData = imageData
     }
     
     func getAllMobilePhoneData(result: @escaping (Result<[MobilePhone], APIError>) -> Void) {
@@ -46,6 +47,16 @@ class MockMobilePhoneAPI : MobilePhoneAPIProtocol {
         }
         
         result(.success(values))
-        
     }
+    
+    func getImage(urlString: String, result: @escaping (Result<Data, APIError>) -> Void) {
+        guard let data = mockImageData else {
+            result(.failure(.apiError))
+            return
+        }
+        
+        result(.success(data))
+    }
+    
+   
 }
