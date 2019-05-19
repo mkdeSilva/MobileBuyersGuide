@@ -16,11 +16,11 @@ protocol MobileListDelegate : class {
     func didTapSortCancel()
 }
 
-class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
+class ListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
 
     private var mobileList : MobilePhonesList = MobilePhonesList(mobiles: [], showFavourites: false)
     
-    @IBAction func didTapSortButton(_ sender: UIButton) {
+    @IBAction func didTapSortButton(_ sender: Any) {
         sortView.isHidden = false
     }
     
@@ -87,6 +87,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    // Handling various sort taps
     func didTapSortPriceHighToLow() {
         mobileList.sortOption = .priceHighToLow
         sortView.isHidden = true
@@ -109,7 +110,14 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         sortView.isHidden = true
     }
     
+    func didTapFavourite(with index: Int) {
+        mobileList.mobilesToDisplay[index].isFavourite.toggle()
+        let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! MobileCell
+        cell.setFavouriteButtonImage(favourite: mobileList.mobilesToDisplay[index].isFavourite)
+    }
     
+    
+    // Table View Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mobileList.mobilesToDisplay.count
     }
@@ -126,17 +134,6 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vm = mobileList.mobilesToDisplay[indexPath.row]
-        print("tapped on: \(vm.modelName).  should enter detail view")
-    }
-    
-    func didTapFavourite(with index: Int) {
-        mobileList.mobilesToDisplay[index].isFavourite.toggle()
-        let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! MobileCell
-        cell.setFavouriteButtonImage(favourite: mobileList.mobilesToDisplay[index].isFavourite)
-    }
-    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return mobileList.showFavourites
     }
@@ -148,4 +145,13 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
             tableView.reloadData()
         }
     }
+    
+    // Segue to detail view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! DetailViewController
+        
+        let viewModel = mobileList.mobilesToDisplay[tableView.indexPathForSelectedRow!.row]
+        destination.configure(with: viewModel)
+    }
+
 }

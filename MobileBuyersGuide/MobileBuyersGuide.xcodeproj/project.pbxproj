@@ -13,6 +13,9 @@
 		1822C95422903A7F005418CE /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95322903A7F005418CE /* DoubleExtension.swift */; };
 		1822C958229045AC005418CE /* MobilePhonesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C957229045AC005418CE /* MobilePhonesList.swift */; };
 		1822C95A22905BFF005418CE /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95922905BFF005418CE /* SortView.swift */; };
+		1822C95C22906E9D005418CE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95B22906E9D005418CE /* DetailViewController.swift */; };
+		1822C95E2290715A005418CE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C95D2290715A005418CE /* DetailView.swift */; };
+		1822C96222907E88005418CE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822C96122907E88005418CE /* DetailViewModel.swift */; };
 		183D37E2228C3AE800E3CC74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D37E1228C3AE800E3CC74 /* AppDelegate.swift */; };
 		183D37E7228C3AE800E3CC74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E5228C3AE800E3CC74 /* Main.storyboard */; };
 		183D37E9228C3AE900E3CC74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D37E8228C3AE900E3CC74 /* Assets.xcassets */; };
@@ -23,7 +26,7 @@
 		183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */; };
 		183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */; };
 		183D3818228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */; };
-		185C6C32228FD5620088D7C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C6C31228FD5620088D7C3 /* ViewController.swift */; };
+		185C6C32228FD5620088D7C3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C6C31228FD5620088D7C3 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		1822C95322903A7F005418CE /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		1822C957229045AC005418CE /* MobilePhonesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhonesList.swift; sourceTree = "<group>"; };
 		1822C95922905BFF005418CE /* SortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
+		1822C95B22906E9D005418CE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1822C95D2290715A005418CE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		1822C96122907E88005418CE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		183D37DE228C3AE700E3CC74 /* MobileBuyersGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBuyersGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183D37E1228C3AE800E3CC74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		183D37E6228C3AE800E3CC74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,7 +63,7 @@
 		183D380D228CDDFE00E3CC74 /* MobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPI.swift; sourceTree = "<group>"; };
 		183D3814228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneAPIProtocol.swift; sourceTree = "<group>"; };
 		183D3817228DBB4F00E3CC74 /* MockMobilePhoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMobilePhoneAPI.swift; sourceTree = "<group>"; };
-		185C6C31228FD5620088D7C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		185C6C31228FD5620088D7C3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				1822C94E22900B14005418CE /* MobileViewModel.swift */,
+				1822C96122907E88005418CE /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -116,8 +123,8 @@
 		183D37E0228C3AE700E3CC74 /* MobileBuyersGuide */ = {
 			isa = PBXGroup;
 			children = (
-				1822C94D22900B0A005418CE /* ViewModels */,
 				183D37ED228C3AE900E3CC74 /* Info.plist */,
+				1822C94D22900B0A005418CE /* ViewModels */,
 				183D380F228DA64600E3CC74 /* Helper */,
 				183D380C228CDDF000E3CC74 /* Service */,
 				183D37FB228C3DB800E3CC74 /* Views */,
@@ -152,7 +159,8 @@
 		183D37F5228C3C7E00E3CC74 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				185C6C31228FD5620088D7C3 /* ViewController.swift */,
+				185C6C31228FD5620088D7C3 /* ListViewController.swift */,
+				1822C95B22906E9D005418CE /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 			children = (
 				1822C948228FFA6E005418CE /* MobileCell.swift */,
 				1822C95922905BFF005418CE /* SortView.swift */,
+				1822C95D2290715A005418CE /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,8 +311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1822C95C22906E9D005418CE /* DetailViewController.swift in Sources */,
 				1822C95A22905BFF005418CE /* SortView.swift in Sources */,
 				1822C95422903A7F005418CE /* DoubleExtension.swift in Sources */,
+				1822C95E2290715A005418CE /* DetailView.swift in Sources */,
 				183D380E228CDDFE00E3CC74 /* MobilePhoneAPI.swift in Sources */,
 				1822C958229045AC005418CE /* MobilePhonesList.swift in Sources */,
 				183D37F8228C3CD700E3CC74 /* MobilePhone.swift in Sources */,
@@ -312,7 +323,8 @@
 				1822C95222900FA6005418CE /* URLSessionExtension.swift in Sources */,
 				183D37E2228C3AE800E3CC74 /* AppDelegate.swift in Sources */,
 				183D3815228DB9F800E3CC74 /* MobilePhoneAPIProtocol.swift in Sources */,
-				185C6C32228FD5620088D7C3 /* ViewController.swift in Sources */,
+				185C6C32228FD5620088D7C3 /* ListViewController.swift in Sources */,
+				1822C96222907E88005418CE /* DetailViewModel.swift in Sources */,
 				183D37FD228C3E7900E3CC74 /* MobilePhoneDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

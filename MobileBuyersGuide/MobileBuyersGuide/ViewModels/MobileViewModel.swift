@@ -18,6 +18,7 @@ class MobileViewModel {
     let imageUrl : String
     let mobileId : Int
     var isFavourite : Bool
+    var detailViewModel : DetailViewModel?
     
     init(mobile: MobilePhone)
     {
@@ -29,6 +30,7 @@ class MobileViewModel {
         self.isFavourite = false
         self.mobileId = mobile.id
         self.imageUrl = mobile.thumbImageURL
+        self.detailViewModel = nil
     }
     
     func setImage(_ image: UIImage) {
