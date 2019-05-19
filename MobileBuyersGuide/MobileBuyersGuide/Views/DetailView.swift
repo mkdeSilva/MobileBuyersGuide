@@ -20,6 +20,7 @@ class DetailView: UIView {
         ratingLabel.text = "Rating: \(viewModel.rating)"
         priceLabel.text = "Price: \(viewModel.price.formattedPrice())"
         descriptionLabel.text = viewModel.description
+        
     }
     
     // Calls SetImagesInScrollView when images are received
@@ -29,24 +30,25 @@ class DetailView: UIView {
             return
         }
         
-        SetImagesInScrollView(images)
+        setImagesInScrollView(images)
     }
+   
     
     // Adds an imageView to the scrollView and calculates the frame for each image
-    fileprivate func SetImagesInScrollView(_ images: [UIImage]) {
+    fileprivate func setImagesInScrollView(_ images: [UIImage]) {
         
         imageScrollView.removeAllSubviews()
         
         for i in 0..<images.count {
             let imageView = UIImageView()
             imageView.image = images[i]
-            let xPosition = UIScreen.main.bounds.width * CGFloat(i)
-            
+            let xPosition = (imageScrollView.frame.width / 1.5) * CGFloat(i)
+       
             imageView.frame = CGRect(x: xPosition, y: 0, width: imageScrollView.frame.width, height: imageScrollView.frame.height)
             imageView.contentMode = .scaleAspectFit
             imageScrollView.addSubview(imageView)
         }
         
-        imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(images.count)
+        imageScrollView.contentSize.width = (imageScrollView.frame.width / 1.5) * CGFloat(images.count + 1)
     }
 }
