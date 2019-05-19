@@ -10,7 +10,6 @@ import UIKit
 
 class SortView: UIView {
     
-  
     @IBAction func didTapPriceLowToHigh(_ sender: Any) {
          delegate?.didTapSortPriceLowToHigh()
     }
@@ -28,9 +27,5 @@ class SortView: UIView {
     }
     
     weak var delegate : MobileListDelegate?
-    
-    func configure() {
-        
-    }
-    
+
 }

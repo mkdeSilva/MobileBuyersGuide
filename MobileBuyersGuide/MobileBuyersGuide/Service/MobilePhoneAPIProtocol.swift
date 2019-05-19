@@ -8,8 +8,9 @@
 
 import Foundation
 
-protocol MobilePhoneAPIProtocol {
-    func getMobileDetail(mobileID : Int, result: @escaping (Result<[MobilePhoneDetail], APIError>) -> Void)
+protocol MobilePhoneAPIProtocol{
     
+    func getMobileDetail(mobileID : Int, result: @escaping (Result<[MobilePhoneDetail], APIError>) -> Void)
     func getAllMobilePhoneData(result: @escaping (Result<[MobilePhone], APIError>) -> Void)
+    func getImage(urlString : String, result : @escaping (Result<Data, APIError>) -> Void)
 }

@@ -18,6 +18,7 @@ protocol MobileListDelegate : class {
 
 class ListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, MobileListDelegate {
 
+    // MobileList which contains what phones to display
     private var mobileList : MobilePhonesList = MobilePhonesList(mobiles: [], showFavourites: false)
     
     @IBAction func didTapSortButton(_ sender: Any) {
@@ -26,6 +27,7 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var sortView: SortView!
     
+    // Segmented Control for switching between All & Favourites
     @IBAction func didTapListToggleControl(_ sender: UISegmentedControl) {
         
         switch(sender.selectedSegmentIndex) {
@@ -41,19 +43,31 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
             print("Unknown segment index")
         }
     }
+    
     @IBOutlet weak var tableView: UITableView!
     
+    let api = MobilePhoneAPI()
+
+    // Hide the SortView and set table view delegates and data source
     override func viewDidLoad() {
         super.viewDidLoad()
         sortView.delegate = self
         sortView.isHidden = true
-        fetchMobileList()
         tableView.dataSource = self
         tableView.delegate = self
+        fetchMobileList()
+       
     }
     
-    let api = MobilePhoneAPI()
+    // If a row has been selected and the list view is appearing, de-select the selected row
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
     
+    // MARK: API Requests
+    // Get mobile list data from the API and call getMobileImages when done
     private func fetchMobileList() {
         api.getAllMobilePhoneData() { [unowned self] (result) in
             switch (result) {
@@ -67,8 +81,9 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    // Gets images for each mobile that needs to be displayed
     private func getMobileImages() {
-        for mobile in mobileList.allMobiles {
+        for mobile in mobileList.mobilesToDisplay {
             api.getImage(urlString: mobile.imageUrl) { [unowned self] (result) in
                 switch(result) {
                 case .success(let data):
@@ -87,7 +102,7 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    // Handling various sort taps
+    // MARK: Handling various sort taps
     func didTapSortPriceHighToLow() {
         mobileList.sortOption = .priceHighToLow
         sortView.isHidden = true
@@ -110,18 +125,19 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         sortView.isHidden = true
     }
     
+    // Toggle favourite of the selected cell and set the favourite button
     func didTapFavourite(with index: Int) {
         mobileList.mobilesToDisplay[index].isFavourite.toggle()
         let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! MobileCell
         cell.setFavouriteButtonImage(favourite: mobileList.mobilesToDisplay[index].isFavourite)
     }
     
-    
-    // Table View Functions
+    // MARK: Table View Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mobileList.mobilesToDisplay.count
     }
     
+    // Create a cell and configure it to the view model
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mobileCell", for: indexPath) as! MobileCell
         
@@ -134,19 +150,22 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    // Only enables editing (deletion) when the mobileList is showing favourites
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return mobileList.showFavourites
     }
     
+    // Deleting a row will toggle favourite
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             mobileList.mobilesToDisplay[indexPath.row].isFavourite.toggle()
-            
             tableView.reloadData()
         }
     }
     
-    // Segue to detail view
+    // MARK: Segue
+    
+    // Segue to detail view and configure the detail view with the selected view model
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! DetailViewController
         

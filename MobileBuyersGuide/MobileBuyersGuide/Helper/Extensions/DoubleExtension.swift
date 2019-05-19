@@ -9,6 +9,8 @@
 import Foundation
 
 extension Double {
+    
+    // Formats a double to US locale currency
     func formattedPrice() -> String {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "en_US")

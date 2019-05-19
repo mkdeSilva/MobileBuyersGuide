@@ -8,36 +8,45 @@
 
 import UIKit
 
-class DetailView: UIView, UIScrollViewDelegate {
+class DetailView: UIView {
     
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // Sets the rating, price, and description
     func configure(with viewModel: MobileViewModel) {
         ratingLabel.text = "Rating: \(viewModel.rating)"
         priceLabel.text = "Price: \(viewModel.price.formattedPrice())"
         descriptionLabel.text = viewModel.description
-        
+    }
+    
+    // Calls SetImagesInScrollView when images are received
+    func setImages(with viewModel: MobileViewModel) {
         guard let images = viewModel.detailViewModel?.images else {
             print("Cannot show images")
             return
         }
         
-        imageScrollView.isScrollEnabled = true
+        SetImagesInScrollView(images)
+    }
+    
+    // Adds an imageView to the scrollView and calculates the frame for each image
+    fileprivate func SetImagesInScrollView(_ images: [UIImage]) {
+        
+        imageScrollView.removeAllSubviews()
         
         for i in 0..<images.count {
-            
             let imageView = UIImageView()
             imageView.image = images[i]
             let xPosition = UIScreen.main.bounds.width * CGFloat(i)
+            
             imageView.frame = CGRect(x: xPosition, y: 0, width: imageScrollView.frame.width, height: imageScrollView.frame.height)
             imageView.contentMode = .scaleAspectFit
-            
-            imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(i + 1)
             imageScrollView.addSubview(imageView)
-            imageScrollView.delegate = self
         }
+        
+        imageScrollView.contentSize.width = imageScrollView.frame.width * CGFloat(images.count)
     }
 }

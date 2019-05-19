@@ -20,8 +20,6 @@ class MobileCell: UITableViewCell {
     @IBAction func didTapFavourite(_ sender: UIButton) {
         delegate?.didTapFavourite(with: sender.tag)
     }
-    
-    
  
     weak var delegate : MobileListDelegate?
     
@@ -29,6 +27,8 @@ class MobileCell: UITableViewCell {
         favouriteButton.imageView?.contentMode = .scaleAspectFit
     }
     
+    // Configures the cell, sets all the ui with proper data
+    // Sets the favouriteButton to have tag of cell index
     func configure(mobileViewModel: MobileViewModel, index: Int) {
         phoneImageView.image = mobileViewModel.image
         phoneTitleLabel.text = mobileViewModel.modelName
@@ -41,6 +41,7 @@ class MobileCell: UITableViewCell {
         favouriteButton.tag = index
     }
     
+    // Sets the favourite button image to favourite or non-favourite
     func setFavouriteButtonImage(favourite : Bool) {
         if (favourite) {
             favouriteButton.setImage(UIImage(named: "favourite"), for: .normal)
@@ -49,8 +50,9 @@ class MobileCell: UITableViewCell {
         }
     }
     
+    // Either hides the favourite button
+    // and disables interaction or enables interaction
     func setFavouriteButtonState(hidden : Bool) {
-        
         if (hidden) {
             favouriteButton.setImage(nil, for: .normal)
             favouriteButton.isUserInteractionEnabled = false

@@ -9,7 +9,13 @@
 import Foundation
 
 class MobilePhonesList {
-    var allMobiles : [MobileViewModel]
+    
+    fileprivate var allMobiles : [MobileViewModel]
+    
+    // Returns the list of MobileViewModels according to chosen options
+    // If viewing All, returns allMobiles
+    // If viewing Favourites, returns all favourited from allMobiles
+    // Sorts the list based on current sort option
     var mobilesToDisplay : [MobileViewModel] {
         get {
             let phones = showFavourites ? allMobiles.filter(){$0.isFavourite} : allMobiles
@@ -23,18 +29,19 @@ class MobilePhonesList {
                 return phones.sorted() {$1.rating < $0.rating}
             }
         }
-        
-        set {}
     }
     
+    // Used for sorting the mobileToDisplay
     var sortOption : SortOption
     
-    var showFavourites = false
+    // Set when changing tabs between All & Favourites in ListView
+    var showFavourites : Bool
     
-    init(mobiles: [MobileViewModel], showFavourites : Bool) {
+    // Sets necessary variables with default sorting option set to Rating Five To One
+    init(mobiles: [MobileViewModel], showFavourites : Bool, sortOption : SortOption = .ratingFiveToOne) {
         allMobiles = mobiles
         self.showFavourites = showFavourites
-        self.sortOption = .ratingFiveToOne
+        self.sortOption = sortOption
     }
 }
 

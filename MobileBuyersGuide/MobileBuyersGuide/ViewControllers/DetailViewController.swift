@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // If there is a currentViewModel configure it
     override func viewWillAppear(_ animated: Bool) {
         guard let viewModel = currentViewModel else {
             return
@@ -30,18 +31,27 @@ class DetailViewController: UIViewController {
         configure(with: viewModel)
     }
    
+    // If the MobileViewModel does not have a DetailViewModel
+    // then it will download the information from API and call getDetailImages() and assign DetailViewModel to MobileViewModel
+    // If it already has one, configure
     func configure(with viewModel : MobileViewModel) {
         if (viewModel.detailViewModel != nil) {
-            print("Already have detail view model")
             if (detailView != nil) {
-                detailView.configure(with: viewModel)
+                DispatchQueue.main.async {
+                    self.detailView.configure(with: viewModel)
+                    self.detailView.setImages(with: viewModel)
+                }
             } else {
                 currentViewModel = viewModel
             }
             return
         }
         
-        api.getMobileDetail(mobileID: viewModel.mobileId) { [unowned self] (result) in
+        DispatchQueue.main.async {
+            self.detailView.configure(with: viewModel)
+        }
+
+        api.getMobileDetail(mobileID: viewModel.mobileId) { (result) in
             switch (result) {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -51,13 +61,15 @@ class DetailViewController: UIViewController {
         }
     }
     
+    // Getting detail images from an array of url strings in the MobileViewModel
+    // Each time it receives an image it configures the detail view
     private func getDetailImages(for viewModel: MobileViewModel, urlStrings : [String]) {
         let detailViewModel = DetailViewModel()
         
         viewModel.detailViewModel = detailViewModel
         
         for urlString in urlStrings {
-            api.getImage(urlString: urlString) { [unowned self] (result) in
+            api.getImage(urlString: urlString) { (result) in
                 switch(result) {
                 case .failure(let error):
                     print("Failed to get image: \(error.localizedDescription)")
@@ -68,7 +80,7 @@ class DetailViewController: UIViewController {
                     }
                     DispatchQueue.main.async {
                         detailViewModel.images.append(image)
-                        self.detailView.configure(with: viewModel)
+                        self.detailView.setImages(with: viewModel)
                     }
                 }
             }
